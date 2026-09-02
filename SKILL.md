@@ -1,6 +1,10 @@
 ---
 name: userese-writer-qwen3-8-flash
-description: Userese 的可选文案 Writer。仅在用户明确点名后，通过阿里云百炼调用 Qwen3.8-Flash，把已确认的 userese-brief/v1 批次写成可核实的 before/after 提案；不重新决定受众、定位或结构，不直接修改产品文件。用于为 Userese 选择千问 Writer、比较不同 Writer，或处理已有的兼容 brief。
+license: MIT
+disable-model-invocation: true
+description: >-
+  Userese 的可选文案 Writer。仅在用户明确点名后，通过阿里云百炼调用 Qwen3.8-Flash，把已确认的 userese-brief/v1 批次写成可核实的 before/after 提案；不重新决定受众、定位或结构，不直接修改产品文件。
+  Optional Userese writer. Call Qwen3.8-Flash on a confirmed userese-brief/v1 and return checkable before/after copy. Better for Chinese. Do not run unless the user names this skill.
 ---
 
 # Userese Writer: Qwen3.8-Flash
@@ -27,7 +31,7 @@ python3 <skill-dir>/scripts/invoke.py brief.json result.json
 python3 <skill-dir>/scripts/render_report.py brief.json result.json before-after.md
 ```
 
-脚本调用阿里云百炼的 OpenAI 兼容 `chat/completions` 接口，并使用 `response_format: json_schema`。默认模型为 `qwen3.8-flash`，默认关闭思考以减少额外消耗。
+脚本调用阿里云百炼的 OpenAI 兼容 `chat/completions` 接口，并使用 `response_format: json_schema`。默认模型为 `qwen3.8-flash`，默认关闭思考以减少额外消耗。用户用英文说话时，按 README 的 English 启动提示回复。
 
 可用配置：
 
