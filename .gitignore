@@ -1,0 +1,4 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.userese-writer-qwen3-8-flash/
